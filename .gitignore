@@ -1,6 +1,10 @@
 # Compiled class file
 *.class
 
+/.idea
+/Java 8 Programming.iml
+/.out
+
 # Log file
 *.log
 
