@@ -54,6 +54,9 @@ public class InfoGain {
 		//	"SLAB-2" : salary >= 100000
 
 		System.out.println(getNameWhoseSalGt(employees));
+
+		//PROBLEM-8
+
 	}
 
 	// PREPARE A LIST OF EMPLOYEE NAMES | USE JAVA 8 STREAMS ONLY
@@ -112,4 +115,7 @@ public class InfoGain {
 
 	}
 
+	public static Map getEmployeeByAddress(Collection<Employee> employees){
+return null;
+	}
 }
