@@ -15,9 +15,15 @@ public class CompareByMultiScenarios {
 
 System.out.println(sortSalary(employees));
 System.out.println(sortSal(employees));
+System.out.println(sortSalByJava8(employees));
 System.out.println(sortSalDeptNotNull(employees));
     }
-//sort name if salary is same
+
+    private static List<Employee> sortSalByJava8(Collection<Employee> employees) {
+        return employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).collect(Collectors.toList());
+    }
+
+    //sort name if salary is same
     public static List sortSalary(Collection<Employee> list){
         return list.stream().sorted((s1, s2) -> {
             if(s1.getSalary() - s2.getSalary() == 0){
