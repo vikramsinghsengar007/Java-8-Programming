@@ -2,13 +2,25 @@ package com.pojo;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class Employee {
     private int id;
     private String name;
+    private String lastName;
     private double salary;
     private String address;
     Map<String, List<Employee>> slabwiseEmployees;
+
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    public Employee(int id, String name, String lastName) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+    }
     // SALARY SLABs :
 //
 //	"SLAB-0" : salary < 50000
@@ -66,6 +78,14 @@ public class Employee {
         return salary;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public void setSalary(double salary) {
         this.salary = salary;
     }
@@ -92,5 +112,18 @@ public class Employee {
 
     public void setSlabwiseEmployees(Map<String, List<Employee>> slabwiseEmployees) {
         this.slabwiseEmployees = slabwiseEmployees;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && Double.compare(employee.salary, salary) == 0 && Objects.equals(name, employee.name) && Objects.equals(address, employee.address) && Objects.equals(slabwiseEmployees, employee.slabwiseEmployees) && Objects.equals(department, employee.department);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, salary, address, slabwiseEmployees, department);
     }
 }
