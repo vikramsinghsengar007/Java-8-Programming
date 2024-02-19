@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class SinglyLinkedList {
 	public Node head;
+	public int size;
 	
 	public void addFromBegining(int val) {
 		Node node = new Node(val);
@@ -11,6 +12,7 @@ public class SinglyLinkedList {
 			node.next = head;
 		}
 		head = node;
+		size++;
 	}
 
 	public void addFromLast(int val){
@@ -23,6 +25,7 @@ public class SinglyLinkedList {
 				temp = temp.next;
 				temp.next = node;
 		}
+		size++;
 	}
 
 
@@ -56,12 +59,55 @@ public class SinglyLinkedList {
 		System.out.println();
 	}
 
+	public void sortList(SinglyLinkedList linkedList) {
+		Node head = linkedList.head;
+		Node nextHead = head.next;
+		while(head!= null){
+			if(head.data instanceof Integer) {
+				Object firstData = head.data;
+				int temp;
+				while (head.next != null) {
+					Object secondData = nextHead.data;
+					int data1 = Integer.parseInt(firstData.toString());
+					int data2 = Integer.parseInt(secondData.toString());
+					if(data1 > data2){
+						temp = (int) head.data;
+						head.data = nextHead.data;
+						nextHead.data = temp;
+					}
+					head = head.next;
+				}
+			}
+			if(head == null) break;
+		}
+	}
+
+	public void middleOfSinglyList(SinglyLinkedList singlyLinkedList){
+		// for single step jump
+		Node slow = singlyLinkedList.head;
+		//for 2 step jump
+		Node fast = singlyLinkedList.head;
+
+		if(singlyLinkedList.head != null){
+			while(fast !=null && fast.next != null){
+				fast = fast.next.next;
+				slow = slow.next;
+			}
+		}
+		System.out.println("middle Data Node : "+ slow.display());
+		System.out.println("middle Data : "+ slow.data);
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		SinglyLinkedList that = (SinglyLinkedList) o;
 		return Objects.equals(head, that.head);
+	}
+
+	public int getSize() {
+		return size;
 	}
 
 	@Override

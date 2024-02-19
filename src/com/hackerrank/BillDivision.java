@@ -1,10 +1,9 @@
 package com.hackerrank;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public class BonAppetit {
+public class BillDivision {
 		public static void main(String[] args) {
 		List<Integer> bill = new ArrayList<>();
 		bill.add(72);          
@@ -39,5 +38,6 @@ public class BonAppetit {
 			  if(annaSum == b) System.out.println("Bon Appetit");
 			  else
 				  System.out.println(refund);
+
 	    }
 }

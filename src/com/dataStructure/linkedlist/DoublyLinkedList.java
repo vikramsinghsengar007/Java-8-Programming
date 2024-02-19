@@ -1,8 +1,8 @@
 package com.dataStructure.linkedlist;
 
 public class DoublyLinkedList<E> {
-	private Node<?> head;
-	private Node<?> tail;
+	public Node<?> head;
+	public Node<?> tail;
 	
 	
 	
@@ -16,8 +16,6 @@ public class DoublyLinkedList<E> {
 		
 		linkedList.remove(4);
 		linkedList.printlist(linkedList.head);
-		
-		
 	}
 
 
@@ -35,9 +33,9 @@ public class DoublyLinkedList<E> {
 	        } 
 	        System.out.println(); 
 	        System.out.println("Traversal in reverse direction"); 
-	        while (last != null) { 
-	            System.out.print(last.data + " "); 
-	            last = last.prev; 
+	        while (last != null) {
+	            System.out.print(last.data + " ");
+	            last = last.prev;
 	        } 
 	    } 
 
@@ -51,7 +49,7 @@ public class DoublyLinkedList<E> {
 
 
 
-	private void remove(E data) {
+	public void remove(E data) {
 		Node temp = head;
 		
 		while(temp != null) {
@@ -123,7 +121,7 @@ public class DoublyLinkedList<E> {
 
 
 
-	private void addFromBegin(E val) {
+	public void addFromBegin(E val) {
 		Node<E> newNode = new Node<>(val);
 	    if(head == null) {  
             //Both head and tail will point to newNode  
@@ -144,4 +142,20 @@ public class DoublyLinkedList<E> {
             tail.next = null;  
         }  
 	}
+
+    public void middleOfDoublyList(DoublyLinkedList doublyLinkedList) {
+		// for single step jump
+		Node slow = doublyLinkedList.head;
+		//for 2 step jump
+		Node fast = doublyLinkedList.head;
+
+		if(doublyLinkedList.head != null){
+			while(fast !=null && fast.next != null){
+				fast = fast.next.next;
+				slow = slow.next;
+			}
+		}
+		System.out.println("middle Data Node from doublyLinkedList: "+ slow.display());
+		System.out.println("middle Data from doublyLinkedList: "+ slow.data);
+    }
 }

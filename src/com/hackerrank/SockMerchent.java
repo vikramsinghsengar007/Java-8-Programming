@@ -1,13 +1,15 @@
 package com.hackerrank;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 public class SockMerchent {
 	public static void main(String[] args) {
-		System.out.println(sockMerchant(9, new int[] {10, 20, 20, 10, 10, 30, 50, 10, 20}));
+		int[] arr = {10, 20, 20, 10, 10, 30, 50, 10, 20};
+		List<Integer> collect = Arrays.stream(arr).boxed().collect(Collectors.toList());
+		System.out.println(sockMerchant(9, arr));
+		System.out.println(sockMerchant(9, collect));
 	}
 	
 	
@@ -33,4 +35,13 @@ public class SockMerchent {
 
 		return pairs;
 	}
+
+	static int sockMerchant(int n, List<Integer> ar){
+		int sum = ar.stream().distinct().mapToInt(number -> {
+			int frequency = Collections.frequency(ar, number);
+			return frequency % 2 == 0 ? frequency : frequency - 1;
+		}).sum();
+		return sum/2;
+	}
+
 }
