@@ -56,6 +56,30 @@ public class SinglyLinkedList {
 		System.out.println();
 	}
 
+	public void sortList(SinglyLinkedList linkedList) {
+		SinglyLinkedList finalList = new SinglyLinkedList();
+		Node head = linkedList.head;
+		Node nextHead = head.next;
+		while(head!= null){
+			if(head.data instanceof Integer) {
+				Object firstData = head.data;
+				int temp;
+				while (head.next != null) {
+					Object secondData = nextHead.data;
+					int data1 = Integer.parseInt(firstData.toString());
+					int data2 = Integer.parseInt(secondData.toString());
+					if(data1 > data2){
+						temp = (int) head.data;
+						head.data = nextHead.data;
+						nextHead.data = temp;
+					}
+					head = head.next;
+				}
+			}
+			if(head == null) break;
+		}
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;

@@ -1,6 +1,7 @@
 package com.prepration;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Singleton implements Serializable, Cloneable{
     private static final long serialVersionUID = 1L;
@@ -25,13 +26,13 @@ public class Singleton implements Serializable, Cloneable{
         Singleton singleton = Singleton.getInstance();
         singleton.hashCode();
         Singleton singleton1 = Singleton.getInstance();
-        System.out.println(singleton1.equals(singleton));
+        System.out.println(Objects.equals(singleton1, singleton));
 
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(singleton);
     }
 
     @Override
