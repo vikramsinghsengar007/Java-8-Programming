@@ -5,7 +5,7 @@ import java.util.Objects;
 public class SinglyLinkedList {
 	public Node head;
 	public int size;
-	
+
 	public void addFromBegining(int val) {
 		Node node = new Node(val);
 		if (head != null) {
