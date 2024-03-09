@@ -1,6 +1,6 @@
 package com.dataStructure.linkedlist;
 
-public class SinglyLinkedListPractice {
+public class ShortList {
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
         linkedList.addFromBegining(1); linkedList.addFromBegining(2); linkedList.addFromBegining(3);
